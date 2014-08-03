@@ -1,0 +1,6 @@
+
+
+<%= form_for @comment, url:{action: "update"} do |f| %>
+<%= f.text_area :content %></br>
+<%= f.submit "Update" %>
+<% end %>

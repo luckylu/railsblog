@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title> Users index </title>
+	<body>
+	<%= link_to "Admin Dashborad", admin_dashboard_path %></br>
+	  <% @users.each do |u| %>
+	    <%= u.email %> | <%= link_to "delete", admin_user_path(u), method: :delete, data: { confirm: "You sure?" } %></br>
+	  <% end %>
+	</body>
+</head>
+</html>
