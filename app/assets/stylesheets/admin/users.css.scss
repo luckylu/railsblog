@@ -1,3 +1,44 @@
 // Place all the styles related to the admin/Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.login-form { 
+background: image-url('bg.jpg') no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+.form-border {
+    width: 450px;
+    height:300px;
+    display: table;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:150px;
+    background:rgba(255,255,255,0.7);
+	//border:2px solid;
+	border-radius:20px;
+	box-shadow:6px 9px 6 6 black inset;
+}
+h1.login{
+	font: bold 55px/100% "微软雅黑";
+	text-align:center;
+	margin-bottom:20px;
+	padding-bottom:20px;
+	border-bottom: 2px solid #1bd1a5;
+	border-radius: 3px 3px 0 0;
+  background-image: -webkit-linear-gradient(top, whiteffd, #eef2f5);
+  background-image: -moz-linear-gradient(top, whiteffd, #eef2f5);
+  background-image: -o-linear-gradient(top, whiteffd, #eef2f5);
+  background-image: linear-gradient(to bottom, whiteffd, #eef2f5);
+  -webkit-box-shadow: 0 1px whitesmoke;
+  box-shadow: 0 1px whitesmoke;
+}
+.sign-in-button{
+	float:right;
+	margin:auto 20px 20px auto;
+}
+.links{
+	display:inline-block;
+}
