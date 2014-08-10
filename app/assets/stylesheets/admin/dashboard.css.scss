@@ -13,7 +13,7 @@ z-index: 1999;
 }
 
 .sidebar{
-	background: #69b076;
+	background: #2b2b2b;
 	width:160px;
 	left:0;
 	position:fixed;
@@ -29,14 +29,22 @@ z-index: 1999;
 	left:180px;
 }
 a.managetext{
-	text-align:center;
+	text-align:left;
 	font-size:15px;
 	font-weight:bold;
 	font-family:"微软雅黑";
-	color:#16160e;
+	color:#ebf6f7;
 	line-height:35px;
-	text-shadow:#e9e4d4 3px 3px 3px;
-	filter:shadow(Color=#e9e4d4,Direction=135,Strength=30)
+	//text-shadow:#e9e4d4 3px 3px 3px;
+	height:40px;
+	display:block;
+	//filter:shadow(Color=#e9e4d4,Direction=135,Strength=3)
+}
+a.managetext:hover{
+	background:#89c3eb;
+	
+	display:block;
+	text-decoration:none;
 }
 .topuser{
     display:inline-block;

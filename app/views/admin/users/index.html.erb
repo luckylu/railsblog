@@ -2,14 +2,36 @@
 <html>
 <head>
 	<title> Users index </title>
-	<body>
-	<%= render "admin/shared/head" %>
-    <%= render "admin/shared/sidebar" %>
-	<div class="container">
+</head>
+<body>
+  <%= render "admin/shared/head" %>
+  <%= render "admin/shared/sidebar" %>
+  <div class="container">
+	<table class="table table-striped table-bordered table-condensed table-hover">
+     <tbody>
+       <tr>
+         <th> Username </th>
+         <th> Email </th>
+         <th> Admin </th>
+         <th> Operation </th>
+       </tr>
 	  <% @users.each do |u| %>
-	    <%= u.email %> | <%= link_to "delete", admin_user_path(u), method: :delete, data: { confirm: "You sure?" } %></br>
+	  <tr>
+	    <td><%= u.username %></td>
+	    <td><%= u.email %></td>
+	    <td><% if u.admin %><p>Y</p><% else %><p>F</p><% end %></td>
+	    <td><%= link_to "delete", admin_user_path(u), method: :delete, data: { confirm: "You sure?" } %> | <%= link_to "edit", edit_admin_user_path(u) %></td>
+	    </tr>
 	  <% end %>
+	  </tbody>
+	  </table>
+	  <div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @posts %>
+    </div>
+    <%= will_paginate @posts, :container => false %>
+  </div>
 	  </div>
 	</body>
-</head>
+
 </html>

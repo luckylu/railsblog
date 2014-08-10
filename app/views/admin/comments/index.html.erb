@@ -7,9 +7,30 @@
 <%= render "admin/shared/head" %>
 <%= render "admin/shared/sidebar" %>
 <div class="container">
-<% @comments.each do |c| %>
-<%= c.content %> | <%= link_to "Delete", admin_comment_path(c.id), method: :delete %></br>
+<table class="table table-striped table-bordered table-condensed table-hover">
+  <tbody>
+    <tr>
+      <th> Submitter</th>
+      <th> Post Title </th>
+      <th> Comment </th>
+      <th> Operation </th>
+    </tr>
+    <% @comments.each do |c| %>
+    <tr>
+      <td><%= c.user.username %></td>
+      <td><%= c.post.title %></td>
+      <td><%= c.content %></td>
+      <td><%= link_to "Delete", admin_comment_path(c.id), method: :delete %> | <%= link_to "Show", controller: "/homes", action: "show", id: c.post_id %></td>
+    </tr>
 <% end %>
+</tbody>
+</table>
+<div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @posts %>
+    </div>
+    <%= will_paginate @posts, :container => false %>
+  </div>
 </div>
 </body>
 </html>

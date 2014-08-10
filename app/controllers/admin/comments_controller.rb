@@ -1,8 +1,9 @@
 class Admin::CommentsController < ApplicationController
 	before_action :authenticate_user!, :current_user_admin
 	def index
-		@comments = Comment.all
+		@comments = Comment.paginate(:page => params[:page], :per_page => 10)
 	end
+	
 	def destroy
 		@comment = Comment.find(params[:id])
 		if @comment.destroy
