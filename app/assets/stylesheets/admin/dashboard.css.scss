@@ -1,3 +1,67 @@
 // Place all the styles related to the admin/dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#menu {
+background: scroll 0 0 #000b00;
+box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+height: 31px;
+left: 0;
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 1999;
+}
+
+.sidebar{
+	background: #69b076;
+	width:160px;
+	left:0;
+	position:fixed;
+	top:0;
+	height:100%;
+	z-index:1998;
+	padding-top:60px;
+
+}
+.container{
+	position:absolute;
+	top:50px;
+	left:180px;
+}
+a.managetext{
+	text-align:center;
+	font-size:15px;
+	font-weight:bold;
+	font-family:"微软雅黑";
+	color:#16160e;
+	line-height:35px;
+	text-shadow:#e9e4d4 3px 3px 3px;
+	filter:shadow(Color=#e9e4d4,Direction=135,Strength=30)
+}
+.topuser{
+    display:inline-block;
+	float:right;
+	padding-right:50px;
+    padding-top:4px;
+}
+.topuser p {
+	display:inline;
+	font-size:15px;
+	font-weight:bold;
+	font-family:"微软雅黑";
+	color:#f3f3f3;
+
+}
+.topuser p.logout{
+	padding-left:20px;
+}
+a.viewsite{
+	font-size:15px;
+	font-weight:bold;
+	font-family:"微软雅黑";
+	color:#f3f3f3;
+}
+.topviewsite{
+	padding-top:4px;
+	display:inline-block;
+}

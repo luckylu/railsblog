@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<% if user_signed_in? %>
+<div id="menu">
+<div class="topviewsite">
+<%= link_to "View site", root_path, class:"viewsite" %>
+</div>
+  <div class="topuser">
+  <p class="welcome">Welcome: </p>
+  <p class="email"><%= current_user.email %></p>
+  <p class="logout"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
+  </div>
+  </div>
+<% end %>
+</body>
+</html>
