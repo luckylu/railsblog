@@ -5,7 +5,7 @@ module Klog
     end
 
     def self.instance
-      @markdown ||= Redcarpet::Markdown.new(Klog::Render.new,  :autolink => true, :fenced_code_blocks => true,no_intra_emphasis => true)
+      @markdown ||= Redcarpet::Markdown.new(Klog::Render.new,  :autolink => true, :fenced_code_blocks => true, :no_intra_emphasis => true)
     end
   end
 

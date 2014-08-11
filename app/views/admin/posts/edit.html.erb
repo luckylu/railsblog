@@ -11,9 +11,17 @@
 
 <div class="container">
 <%= form_for @post, url: {action: "update"} do |f| %>
-  <%= f.text_field :title %> </br>
-  <%= f.text_area :content %>
-  <%= f.submit "Update" %>
+<div class="form-group">
+  <%= f.label :title %>
+  <%= f.text_field :title, class:"form-control inpuut-lg col-sm-1" %>
+  </div>
+  <div class="form-group">
+  <%= f.label :content %>
+  <%= f.text_area :content, class:"form-control input-lg", rows:"30" %>
+  </div>
+  
+  <%= f.submit "Update", class:"btn btn-primary" %>
+
 <% end %>
 </div>
 </body>
