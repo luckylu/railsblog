@@ -37,8 +37,8 @@ class Admin::PostsController < ApplicationController
     def update
     	@post = Post.find(params[:id])
     	if @post.update_attributes(posts_params)
-    		@cates = CategoryPost.where(post_id:params[:id])
-    		@cates.destroy_all
+    		CategoryPost.delete_all(post_id:params[:id])
+    		
     		params[:categories_ids].each do |category|
 				@cate = CategoryPost.new(:category_id => category, :post_id => @post.id)
 				if @cate.valid?
