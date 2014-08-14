@@ -23,11 +23,7 @@ z-index: 1999;
 	padding-top:60px;
 
 }
-.container{
-	position:absolute;
-	top:50px;
-	left:270px;
-}
+
 a.managetext{
 	text-align:left;
 	font-size:15px;
@@ -72,4 +68,13 @@ a.viewsite{
 .topviewsite{
 	padding-top:4px;
 	display:inline-block;
+}
+.container {
+    width:700px;
+    overflow-x:visible;
+
+overflow-y:visible;
+	position:absolute;
+	left:300px;
+	top:70px;
 }

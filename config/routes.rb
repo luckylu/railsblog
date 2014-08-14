@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :posts
     resources :users
     resources :comments
+    resources :categories
     match 'dashboard', to: 'dashboard#index', via: :get
   end
   resources :posts do

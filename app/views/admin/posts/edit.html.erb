@@ -17,9 +17,10 @@
   </div>
   <div class="form-group">
   <%= f.label :content %>
-  <%= f.text_area :content, class:"form-control input-lg", rows:"30" %>
+  <%= f.text_area :content, class:"form-control input-lg", rows:"24" %>
   </div>
-  
+  <%= select_tag "categories_ids", options_from_collection_for_select(Category.all, 'id', 'name', @cate), :multiple => true %>
+  <%= puts @cate %>
   <%= f.submit "Update", class:"btn btn-primary" %>
 
 <% end %>

@@ -11,7 +11,7 @@ background-size: cover;
 }
 .form-border {
     width: 450px;
-    height:300px;
+    height:350px;
     display: table;
     margin-left:auto;
     margin-right:auto;
@@ -35,9 +35,8 @@ h1.login{
   -webkit-box-shadow: 0 1px whitesmoke;
   box-shadow: 0 1px whitesmoke;
 }
-.sign-in-button{
-	float:right;
-	margin:auto 20px 20px auto;
+.sign-in {
+  margin-top:70px;
 }
 .links{
 	display:inline-block;
