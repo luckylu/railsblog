@@ -3,16 +3,12 @@
 <head>
 </head>
 <body>
-<div class="sidebar">
-<div class="leftmanage">
-<%= link_to "Admin Dashboard", admin_dashboard_path, class:"managetext" %>
-</br>
-<%= link_to "Manage Posts", admin_posts_path, class:"managetext" %>
-</br>
-<%= link_to "Manage Users", admin_users_path, class:"managetext" %>
-</br>
-<%= link_to "Manage Comments", admin_comments_path, class:"managetext" %>
-</div>
-</div>
+<ul class="nav nav-pills nav-stacked nav-bar" role="tablist">
+  <li role="presentation" class="active"><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+  <li role="presentation"><%= link_to "Manage Posts", admin_posts_path %></li>
+  <li role="presentation"><%= link_to "Manage Category", admin_categories_path %></li>
+  <li role="presentation"><%= link_to "Manage Users", admin_users_path %></li>
+  <li role="presentation"><%= link_to "Manage Comments", admin_comments_path %></li>
+</ul>
 </body>
 </html>

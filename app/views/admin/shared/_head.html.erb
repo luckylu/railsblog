@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 </head>
 <body>
-<% if user_signed_in? %>
-<div id="menu">
-<div class="topviewsite">
-<%= link_to "View site", root_path, class:"viewsite" %>
-</div>
-  <div class="topuser">
-  <p class="welcome">Welcome: </p>
-  <p class="email"><%= current_user.email %></p>
-  <p class="logout"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
+
+<nav class="navbar navbar-inverse navbar-static-top" role="navication">
+  <div class="container-fluid">
+  <ul class="nav navbar-nav navbar-left">
+  <li><%= link_to "View site", root_path %></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+  <li><p class="navbar-text">Welcome: <%= current_user.email %> | <%= link_to "Sign Out", destroy_user_session_path, class:"navbar-link", method: :delete %></p></li>
+  </ul>
   </div>
-  </div>
-<% end %>
+</nav>
+
 </body>
 </html>
