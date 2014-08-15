@@ -37,6 +37,7 @@ class Admin::PostsController < ApplicationController
     def update
     	@post = Post.find(params[:id])
     	if @post.update_attributes(posts_params)
+    		if @cate != params[:categories_ids]
     		CategoryPost.delete_all(post_id:params[:id])
     		
     		params[:categories_ids].each do |category|
@@ -46,6 +47,7 @@ class Admin::PostsController < ApplicationController
 					else
 					@errors += @cate.errors
 				end
+			end
 			end
     		redirect_to admin_posts_path
     	else
