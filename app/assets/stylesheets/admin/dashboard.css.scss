@@ -1,12 +1,28 @@
 // Place all the styles related to the admin/dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-//body { padding-top: 70px; }
-.nav-bar{
-	width:160px;
+
+.main{
+	margin-top:60px;
+}
+
+.sidebar-menu{
+
+	width:180px;
+
 }
 .container-admin {
 	position:absolute;
 	top:70px;
 	left:200px;
+}
+ul.nav-bar li a {
+	font:normal bold 14px/20px arial,sans-serif;
+	color:#fffbf0;
+}
+ul.nav-bar li a {
+	background-color:#161823;
+}
+ul.nav-bar li a:hover {
+	background-color:#424c50;
 }

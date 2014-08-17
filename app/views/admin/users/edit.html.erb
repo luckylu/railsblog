@@ -1,13 +1,3 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-	<title> Users index </title>
-</head>
-<body>
-  <%= render "admin/shared/head" %>
-  <%= render "admin/shared/sidebar" %>
-
-<div class="container">
 <% @user.errors.full_messages.each do |m| %>
 <%= m %>
 <% end %>
@@ -21,9 +11,3 @@
 <%= f.submit "Update" %>
 
 <% end %>
-
-
-</div>
-</body>
-
-</html>

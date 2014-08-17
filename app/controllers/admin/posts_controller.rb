@@ -2,10 +2,12 @@ class Admin::PostsController < ApplicationController
 	before_action :authenticate_user!, :current_user_admin
 	def index
 		@posts = Post.paginate(:page => params[:page], :per_page => 20)
+		render :layout => "layouts/admin"
 	end
 	def new
 		@post = Post.new
 		@categories = Category.all
+		render :layout => "layouts/admin"
 	end
 	def create
 		@post = current_user.posts.build(posts_params)
@@ -18,10 +20,11 @@ class Admin::PostsController < ApplicationController
 					@errors += @cate.errors
 				end
 			end
-			redirect_to admin_posts_path
+			redirect_to admin_posts_path,format:'js'
 		else
 			render 'new'
 		end
+
 	end
 
 	def edit
@@ -32,6 +35,7 @@ class Admin::PostsController < ApplicationController
 			@cate << catepost.category_id
 		end
 		@cate
+		render :layout => "layouts/admin"
 	end
 
     def update

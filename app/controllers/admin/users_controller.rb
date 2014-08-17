@@ -2,6 +2,7 @@ class Admin::UsersController < ApplicationController
 	before_action :authenticate_user!, :current_user_admin
 	def index
 		@users = User.paginate(:page => params[:page], :per_page => 10)
+		render :layout => "layouts/admin"
 	end
 	def destroy
 		User.find(params[:id]).destroy
@@ -10,6 +11,7 @@ class Admin::UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
+		render :layout => "layouts/admin"
 	end
 
 	def update

@@ -1,9 +1,11 @@
 class Admin::CategoriesController < ApplicationController
 	def index
 		@category = Category.all
+		render :layout => "layouts/admin"
 	end
 	def new
 		@category = Category.new
+		render :layout => "layouts/admin"
 	end
 	def create
 		@category = Category.new(category_params)
@@ -13,12 +15,6 @@ class Admin::CategoriesController < ApplicationController
 			render "new"
 		end
 	end
-
-
-
-
-
-
 
 
 	private 

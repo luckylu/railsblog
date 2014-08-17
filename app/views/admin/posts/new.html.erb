@@ -1,15 +1,3 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>New Post</title>
-</head>
-<body>
-<%= render "admin/shared/head" %>
-
-<%= render "admin/shared/sidebar" %>
-
-<div class="container">
-
 <%= form_for @post, url: {action: "create"} do |f| %>
 
 <div class="form-group">
@@ -23,9 +11,3 @@
 <%= select_tag "categories_ids", options_from_collection_for_select(Category.all, 'id', 'name'), :multiple => true %>
   <%= f.submit "Post", class:"btn btn-primary" %>
 <% end %>
-
-
-</div>
-
-</body>
-</html>

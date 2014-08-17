@@ -1,12 +1,4 @@
 <!DOCTYPE HTML>
-<html>
-<head>
-<title>Comments</title>
-</head>
-<body>
-<%= render "admin/shared/head" %>
-<%= render "admin/shared/sidebar" %>
-<div class="container">
 <table class="table table-striped table-bordered table-condensed table-hover">
   <tbody>
     <tr>
@@ -27,10 +19,7 @@
 </table>
 <div class="flickr_pagination">
     <div class="page_info">
-      <%= page_entries_info @posts %>
+      <%= page_entries_info @comments %>
     </div>
-    <%= will_paginate @posts, :container => false %>
+    <%= will_paginate @comments, :container => false %>
   </div>
-</div>
-</body>
-</html>
