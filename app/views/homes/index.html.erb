@@ -3,14 +3,23 @@
 <head>
 <title>Home Page</title>
 </head>
-<body>
+<body class="home">
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container-fluid">
   <% if user_signed_in? %>
-    <%= current_user.email %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+    <p class="navbar-text navbar-left"><%= current_user.email %></p>
+     <% if current_user.admin == true %>
+    <p class="navbar-text navbar-left"><%= link_to "Admin Dashboard", admin_dashboard_path %></p>  
+    <% end %> 
+    <p class="navbar-text navbar-left"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></p>
+    
   <% else %>
-    <%= link_to "Sign in", new_user_session_path %>
+    <p class="navbar-text navbar-left"><%= link_to "Sign in", new_user_session_path, class:"navbar-link" %></p>
 <% end %>
-</br></br>
+</div>
+</nav>
+<%= render 'homes/shared/head' %>
+<div class="container">
 <% n = 1 %>
 <% @posts.each do |p| %>
 
@@ -21,7 +30,7 @@ Content: <%= p.content %></br>
 </br>
 <% n += 1 %>
 <% end %>
-
+</div>
 
 </body>
 </html>
