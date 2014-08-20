@@ -24,7 +24,7 @@ end
 	CategoryPost.create(post_id:"#{x}", category_id:"4")
 end
 
-4.times do |x|
+1.upto(5) do |x|
 	Category.create(name:"category#{x}")
 end
-User.create(username:"aa",email:"aa@hp.com",password:"aaaaaaaa",admin:"true")
+User.create(username:"Michael",email:"aa@hp.com",password:"aaaaaaaa",admin:"true")
