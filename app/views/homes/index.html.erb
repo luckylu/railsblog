@@ -1,11 +1,17 @@
 
-<% n = 1 %>
+
 <% @posts.each do |p| %>
 
-Post <%= n %> </br> 
+<div class="jumbotron">
 Title: <%= p.title %> </br>
 Content: <%= p.content %></br>
-<%= link_to "show details", controller: "homes", action: "show", id: p.id %>
+<%= link_to "show details", post_path(p) %>
 </br>
-<% n += 1 %>
+</div>
 <% end %>
+
+<div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @posts %>
+    </div>
+    <%= will_paginate @posts, :container => false %>

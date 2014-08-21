@@ -41,7 +41,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-pill">
 <% Category.all.each do |a| %>
-	<li class="catenav"><%= link_to a.name, controller: "/homes", action: "category", id: a.id %></li>
+	<li class="catenav"><%= link_to a.name, category_path(a) %></li>
 	<% end %>
 	</ul>
 	

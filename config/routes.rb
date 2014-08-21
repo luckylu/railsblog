@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'homes#index', via: 'get'
   devise_for :users, path: "user", path_names: { sign_in: 'login', sign_out: 'logout' }
-  get 'posts/:id', to: 'homes#show' 
-  get 'category/:id', to: 'homes#category'
+  get 'post/:id', to: 'homes#show', as: 'post'
+  get 'category/:id', to: 'homes#category', as: 'category'
   namespace :admin do
     resources :posts
     resources :users
