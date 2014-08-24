@@ -1,6 +1,9 @@
 class HomesController < ApplicationController
+  require 'will_paginate/array'
+
 	def index
 		@posts = Post.paginate(:page => params[:page], :per_page => 5)
+
 	end
 
 	def show
@@ -19,7 +22,7 @@ class HomesController < ApplicationController
       @post_cate_ids.each do |i|
       	@post_cate << Post.find_by(id:i)
       end
-      @post_cate
+      @postscate = @post_cate.paginate(:page => params[:page], :per_page => 5)
   end
   
 

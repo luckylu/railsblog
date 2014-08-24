@@ -1,6 +1,34 @@
+<div class="row">
+<div class="col-md-8">
+<% @postscate.each do |p| %>
 
-<% @post_cate.each do |i| %>
-Title:<%= i.title %>
-Content:<%= i.content %>
-</br>
+<div class="jumbotron">
+<div class="posthead">
+ <h2><%= p.title %></h2> 
+<h4><small><span class="glyphicon glyphicon-user"></span>: <%= p.user.username %></small> <small><span class="glyphicon glyphicon-time"></span>: <%= p.created_at.strftime("%Y/%m/%d")%></small> <small> <span class="glyphicon glyphicon-thumbs-up"></span>: <%= p.comments.count %></h4></small>
+</div>
+<p><%= sanitize p.html_content.slice(0..200) %></p>
+<div class="detail">
+<%= link_to "show details", post_path(p) %>
+</div>
+</div>
 <% end %>
+
+</div>
+<div class="col-md-4">
+<div class="jumbotron">
+Widget1
+</div>
+<div class="jumbotron">
+Widget2
+</div>
+<div class="jumbotron">
+Widget3
+</div>
+</div>
+</div>
+<div class="flickr_pagination">
+    <div class="page_info">
+      <%= page_entries_info @postscate %>
+    </div>
+    <%= will_paginate @postscate, :container => false %>
