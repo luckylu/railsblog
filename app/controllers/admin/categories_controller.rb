@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+	before_action :authenticate_user!, :current_user_admin
 	def index
 		@category = Category.all
 		render :layout => "layouts/admin"

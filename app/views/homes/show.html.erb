@@ -1,14 +1,5 @@
-<%= @post.title %></br>
-<%= sanitize @post.html_content %>
-<%= render 'comments/new' %>
-<h1>Comments</h1>
-<% @comments.each do |c| %>
-<%= c.user.email %> --
-	<%= c.content %>  
-	<% if current_user.id == c.user_id %>
-      | <%= link_to "Edit", edit_post_comment_path(@post,c.id) %>
-    <% end %>
+<h2><%= @post.title %></h2>
+<p><%= sanitize @post.html_content %></p>
 
-
-	</br> 
-<% end %>
+<h1>Add Comments</h1>
+<%= render 'comments/index' %>

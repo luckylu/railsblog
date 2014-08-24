@@ -1,24 +1,45 @@
 class CommentsController < ApplicationController
-	
+	before_action :authenticate_user!
+	def index
+		@comments = Comment.where(post_id:params[:id])
+		
+	end
 	def create
         @post = Post.find(params[:post_id])
-		@comment = current_user.comments.create(comments_params)
+		@comment = current_user.comments.build(comments_params)
 		@comment.post_id = @post.id
-		if @comment.save
-			redirect_to controller: "homes", action:"show", id: @post.id
-		end
+		@com = @comment
+		respond_to do |format|
+		  if @comment.save
+			format.html {redirect_to post_path(@post)}
+			format.js {}
+		else
+			format.html { render action:"create"}
+
+		  end
+	    end
 	end
     def edit
     	@comment = Comment.find(params[:id])
+    	@post = Post.find(@comment.post_id)
+    	respond_to do |format|
+    		format.html 
+    		format.js
+    	end
     end
     def update
     	@comment = Comment.find(params[:id])
-    	if @comment.update_attributes(comments_params)
-    		redirect_to controller: "homes", action:"show", id: params[:post_id]
+    	
+    	respond_to do |format|
+    		if @comment.update_attributes(comments_params)
+    		format.html
+    		format.js
     	else
-    		render 'edit'
+    		format.html {render 'edit'}
+    	end
     	end
     end
+    
 	private
 	def comments_params
 		params.require(:comment).permit(:content)

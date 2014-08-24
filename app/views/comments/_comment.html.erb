@@ -1,0 +1,13 @@
+<div id="com">
+</div>
+<div id="editcomment<%= comment.id %>">
+<%= comment.user.email %> --
+
+	<%= comment.content %>  
+	<% if signed_in? %>
+	<% if current_user.id == comment.user_id %>
+      | <%= link_to "Edit", edit_post_comment_path(comment.post_id,comment.id),remote:true %>
+    <% end %>
+<% end %>
+ </div>
+</br>

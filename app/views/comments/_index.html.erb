@@ -1,0 +1,17 @@
+<div class="row">
+<div class="col-xs-8 col-md-5">
+<div class="form-group">
+<%= form_for [@post,Comment.new],remote:true do |f| %>
+<%= f.text_area :content, class:"form-control", rows:"8" %>
+<%= f.submit "Add Comment",class:"btn btn-primary btn-sm form-control" %>
+<% end %>
+</div>
+</div>
+</div>
+<h1>Comments</h1>
+<div id="com">
+</div>
+
+<%= render @comments %>
+
+
