@@ -7,6 +7,18 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  layout :layout
+
+  private
+
+  def layout
+    # only turn it off for login pages:
+    devise_controller? ? false : "application"
+   
+  end
+
+
+
   protected
 
   def configure_permitted_parameters

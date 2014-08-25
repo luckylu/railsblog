@@ -1,0 +1,14 @@
+<div class="jumbotron">
+<h3>Rencent Comments</h3>
+<ul class="list-unstyled">
+<% Comment.limit(5).each do |x| %>
+<li><%= x.content %></li>
+<% end %>
+</ul>
+</div>
+<div class="jumbotron">
+Widget2
+</div>
+<div class="jumbotron">
+Widget3
+</div>
