@@ -33,12 +33,12 @@ h1.login{
   -webkit-box-shadow: 0 1px whitesmoke;
   box-shadow: 0 1px whitesmoke;
 }
-.sign-in {
-  margin-top:70px;
+
+.signinbutton,.signinlink {
+  display:inline-block;
+  padding-top:20px;
 }
-.links{
-	display:inline-block;
-}
+
 .signuptitle {
   font:40px bold;
   text-align:center;
