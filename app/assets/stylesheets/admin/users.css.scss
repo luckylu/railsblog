@@ -9,6 +9,10 @@ background: image-url('bg.jpg') no-repeat center center fixed;
 -o-background-size: cover;
 background-size: cover;
 }
+p.errormessage{
+  color:red;
+  text-align:center;
+}
 .form-border {
     
     height:350px;
@@ -17,7 +21,7 @@ background-size: cover;
     background:rgba(255,255,255,0.7);
 	//border:2px solid;
 	border-radius:20px;
-	box-shadow:6px 9px 6 6 black inset;
+	//box-shadow:6px 9px 6 6 black inset;
 }
 h1.login{
 	font: bold 55px/100% "微软雅黑";

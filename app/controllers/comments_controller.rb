@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	before_action :authenticate_user!
+	before_action :login_user
 	def index
 		@comments = Comment.where(post_id:params[:id])
 		
@@ -18,6 +18,7 @@ class CommentsController < ApplicationController
 
 		  end
 	    end
+
 	end
     def edit
     	@comment = Comment.find(params[:id])
@@ -43,5 +44,16 @@ class CommentsController < ApplicationController
 	private
 	def comments_params
 		params.require(:comment).permit(:content)
+	end
+
+	def login_user
+		unless user_signed_in?
+			flash[:error] = "To leave a comment,You must sign in first!"
+			respond_to do |format|
+				format.html {redirect_to new_user_session_path}
+				format.js {render :js => "window.location = '#{new_user_session_path}'"}
+			end
+			
+		end
 	end
 end
