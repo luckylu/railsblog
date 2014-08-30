@@ -1,1 +1,6 @@
+<% if @comment.errors.any? %>
+$("#comment_update_error<%= @comment.id %>").html("<%= j render partial:'comment_error' %>");
+<% else %>
+$("#comment_update_error<%= @comment.id %>").empty();
 $("#editcomment<%= @comment.id %>").html("<%= j render @comment %>")
+<% end %>

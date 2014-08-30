@@ -1,8 +1,8 @@
-<div id="signin">
-</div>
+
 <div id="com">
 </div>
-<div id="editcomment<%= comment.id %>">
+
+
 <%= comment.user.email %> --
 
 	<%= comment.content %>  
@@ -11,5 +11,8 @@
       | <%= link_to "Edit", edit_post_comment_path(comment.post_id,comment.id),remote:true %>
     <% end %>
 <% end %>
+<div id="comment_update_error<%= comment.id %>"></div>
+<div id="editcomment<%= comment.id %>">
  </div>
+ 
 </br>

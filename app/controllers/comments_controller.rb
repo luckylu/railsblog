@@ -8,14 +8,14 @@ class CommentsController < ApplicationController
         @post = Post.find(params[:post_id])
 		@comment = current_user.comments.build(comments_params)
 		@comment.post_id = @post.id
-		@com = @comment
+		
 		respond_to do |format|
 		  if @comment.save
 			format.html {redirect_to post_path(@post)}
 			format.js {}
 		else
-			format.html { render action:"create"}
-
+			format.html { redirect_to post_path(@post) }
+			format.js{}
 		  end
 	    end
 
@@ -37,6 +37,7 @@ class CommentsController < ApplicationController
     		format.js
     	else
     		format.html {render 'edit'}
+    		format.js
     	end
     	end
     end

@@ -1,4 +1,8 @@
 
-
-
-$("<%= j render @com %>").appendTo("#com");
+<% if @comment.errors.any? %>
+$("#commenterror").html("<%= j render partial:'comment_error' %>");
+<% else %>
+$("#commenterror").empty();
+$("<%= j render @comment %>").appendTo("#com");
+$('textarea').val('')
+<% end %>
