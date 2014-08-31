@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
 
   layout :layout
 
+  def render_404
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
   private
 
   def layout

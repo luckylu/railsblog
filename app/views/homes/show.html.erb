@@ -1,6 +1,30 @@
-<h2><%= @post.title %></h2>
-<p><%= sanitize @post.html_content %></p>
 
-<h1>Add Comments</h1>
+<div class="row">
+  
+    <div class="col-xs-12 col-md-12">
+<div class="jumbotron">
+      <div class="posthead">
+        <h2><%= @post.title %></h2> 
+          <h4><small><span class="glyphicon glyphicon-user"></span>: <%= @post.user.username %></small><small><span class="glyphicon glyphicon-time"></span>: <%= @post.created_at.strftime("%Y/%m/%d")%></small><small> <span class="glyphicon glyphicon-thumbs-up"></span>: <%= @post.comments.count %></h4></small>
+      </div>
+      <div class="showcontent">
+        <p><%= sanitize @post.html_content %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  
+    <div class="col-xs-12 col-md-12">
+<div class="jumbotron">
+
+<div class="comments">
 
 <%= render 'comments/create' %>
+</div>
+</div>
+</div>
+</div>
+
+

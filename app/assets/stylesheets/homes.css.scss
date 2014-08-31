@@ -4,7 +4,10 @@
 $bgDefault      : #e74c3c;
 body.home{
 	padding-top:70px;
+	background:#eeeeee;
 }
+html, body, #wrap {height: 100%;}
+body > #wrap {height: auto; min-height: 100%;}
 .home-navbar{
 	padding-right:20px;
 }
@@ -14,12 +17,12 @@ body.home{
 
 .row .jumbotron {
     padding-top:15px;
-	background:#ebf6f7;
+	background:#fdfafa;
 }
 .row .jumbotron p {
   margin-bottom: 15px;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: normal;
 }
 .posthead {
 	border-bottom: 1px solid #2ca9e1;
@@ -37,58 +40,26 @@ h4 small {
 	background:white;
 }
 
-
-/* Red */
-$bgDefault      : #e74c3c;
-$bgHighlight    : #c0392b;
-$colDefault     : #ecf0f1;
-$colHover       : #ffbbbc; 
-
-
-/* --- Style --- */
-.navbar-default {
-    background-color: $bgDefault;
-    border-color: $bgHighlight;
-    .navbar-brand {
-        color: $colDefault;
-        &:hover, &:focus {
-            color: $colHover; }}
-    .navbar-nav {
-        > li {
-            > a {
-                color: $colDefault;
-                &:hover, &:focus {
-                    color: $colHover;   }}}
-        .active {
-            > a, > a:hover, > a:focus {
-                color: $colHover;
-                background-color: $bgHighlight; }}
-        .open {
-            > a, > a:hover, > a:focus {
-                color: $colHover;
-                background-color: $bgHighlight;
-                .caret {
-                    border-top-color: $colHover;
-                    border-bottom-color: $colHover; }}}
-        > .dropdown {
-            > a {
-                .caret {
-                    border-top-color: $colDefault;
-                    border-bottom-color: $colDefault; }
-                &:hover, &:focus {
-                    .caret {
-                        border-top-color: $colHover;
-                        border-bottom-color: $colHover; }}}}}
-    .navbar-toggle {
-        border-color: $bgHighlight;
-        &:hover, &:focus {
-            background-color: $bgHighlight; }
-        .icon-bar {
-            background-color: $colDefault; }}}
-@media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-        color: $colDefault;
-        &:hover, &:focus {
-            color: $colHover;
-            background-color: $bgHighlight; }}
+.comments {
+    
+}
+.footer {
+	position:relative;
+	margin-top:-80px;
+	
+	height:80px;
+	background:#161823;
+	clear:both;
+}
+#main {
+	padding-bottom:100px;
+}
+.footer > p{
+padding-top: 10px;
+    text-align:center;
+	color:white;
+}
+.showcontent> p{
+	font-size:17px;
+	
 }

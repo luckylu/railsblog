@@ -1,7 +1,7 @@
 <div class="jumbotron">
 <h3>Rencent Comments</h3>
 <ul class="list-unstyled">
-<% Comment.limit(5).each do |x| %>
+<% Comment.order(created_at: :desc).limit(5).each do |x| %>
 <li><%= x.content %></li>
 <% end %>
 </ul>

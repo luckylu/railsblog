@@ -7,10 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="home">
+<div id="wrap">
+<div id="main" class="clearfix">
 <%= render 'homes/shared/head' %>
 <div class="container">
-<%= yield %>
 
+<%= yield %>
+</div>
+</div>
 </div>
 <%= render 'homes/shared/footer' %>
 </body>

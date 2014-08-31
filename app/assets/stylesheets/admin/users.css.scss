@@ -13,6 +13,10 @@ p.errormessage{
   color:red;
   text-align:left;
 }
+p.loginerrormessage{
+  color:red;
+  text-align:center;
+}
 .form-border {
     
     height:350px;
@@ -49,7 +53,7 @@ h1.login{
   margin-bottom:30px;
 }
 .signup .container {
-  margin-top:50px;
+  padding-top:50px;
 }
 
 .signup {
