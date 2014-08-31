@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   
   get 'admin', to: redirect('admin/dashboard')
   
+  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
