@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+
 gem "therubyracer"
 gem 'redcarpet', '~> 3.1.2'
 gem 'will_paginate', '~> 3.0'
