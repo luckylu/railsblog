@@ -27,4 +27,3 @@ end
 1.upto(5) do |x|
 	Category.create(name:"category#{x}")
 end
-User.create(username:"Michael",email:"aa@hp.com",password:"aaaaaaaa",admin:"true")

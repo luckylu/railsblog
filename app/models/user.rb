@@ -6,5 +6,13 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
   validates :username, presence: true, uniqueness: true, length: { minimum: 2 }
+  before_save :set_first_user_admin
+
+  private 
+  def set_first_user_admin
+  	if User.all.size == 0
+  		self.admin = true
+  	end
+  end
   
 end
