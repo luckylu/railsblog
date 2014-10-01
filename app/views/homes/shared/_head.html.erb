@@ -2,25 +2,29 @@
 <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
 <div class="container-fluid">
   <% if user_signed_in? %>
+  
   <ul class="nav navbar-nav navbar-right home-navbar">
-<li class="dropdown">
-<a href="#" class="dropdown-toggle" id="navbar-link" data-toggle="dropdown"><%= current_user.username %><span class="caret"></span></a>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" id="navbar-link" data-toggle="dropdown">
+        <%= current_user.username %>
+        <span class="caret"></span>
+      </a>
   
   
-  <ul class="dropdown-menu" role="menu">
-  <% if current_user.admin == true %>
-    <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
-    <% end %> 
-    <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-    
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      <% if current_user.admin == true %>
+        <li><%= link_to "Admin Dashboard", admin_dashboard_path %></li>
+      <% end %> 
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </li>
   </ul>
-  </li>
-</ul>
 
     
   <% else %>
     <p class="navbar-text navbar-right home-navbar" id="navbar-link"><%= link_to "Sign in", new_user_session_path %></p>
 <% end %>
+
 </div>
 </nav>
 
