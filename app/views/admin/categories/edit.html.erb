@@ -1,0 +1,7 @@
+<%= form_for @category, url: {action: "update"} do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.submit "Update", class:"btn btn-primary" %>
+<% end %>
+
+
