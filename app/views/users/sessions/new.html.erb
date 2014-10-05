@@ -14,9 +14,9 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name),html:{class:"form-horizontal"}) do |f| %>
 <h1 class="login">Login</h1>
-<% flash.each do |name, msg| %>
-      <p class="loginerrormessage"><%= msg %></p>
-    <% end %>
+
+      <p class="loginerrormessage"><%= flash[:error] %></p>
+   
   <div class="form-group">
   <%= f.label :email, class:"col-sm-3 col-md-3 control-label" %>
   <div class="col-sm-6 col-md-6">

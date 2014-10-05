@@ -51,7 +51,7 @@ class CommentsController < ApplicationController
 		unless user_signed_in?
 			flash[:error] = "To leave a comment,You must sign in first!"
 			respond_to do |format|
-				format.html {redirect_to new_user_session_path}
+				format.html {render :nothing}
 				format.js {render :js => "window.location = '#{new_user_session_path}'"}
 			end
 			
