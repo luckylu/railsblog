@@ -31,6 +31,9 @@
 
 
 <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
 <nav class="navbar navbar-default cate-navbar navbar-inverse">
 
 <div class="navbar-header">
