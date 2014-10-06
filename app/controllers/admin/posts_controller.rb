@@ -30,7 +30,7 @@ class Admin::PostsController < ApplicationController
 	def edit
 		@post = Post.find(params[:id])
 		@cate = []
-		@cates = CategoryPost.where(post_id:params[:id])
+		@cates = CategoriesPost.where(post_id:params[:id])
 		@cates.each do |catepost|
 			@cate << catepost.category_id
 		end
@@ -42,10 +42,10 @@ class Admin::PostsController < ApplicationController
     	@post = Post.find(params[:id])
     	if @post.update_attributes(posts_params)
     		if @cate != params[:categories_ids]
-    		CategoryPost.delete_all(post_id:params[:id])
+    		CategoriesPost.delete_all(post_id:params[:id])
     		
     		params[:categories_ids].each do |category|
-				@cate = CategoryPost.new(:category_id => category, :post_id => @post.id)
+				@cate = CategoriesPost.new(:category_id => category, :post_id => @post.id)
 				if @cate.valid?
 					@cate.save
 					else

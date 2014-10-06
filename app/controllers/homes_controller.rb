@@ -15,7 +15,7 @@ class HomesController < ApplicationController
     	@cate = Category.all
     	@cate_num = @cate.size
     	@post_cate_ids = []
-    	CategoryPost.where(category_id:params[:id]).each do |i|
+    	CategoriesPost.where(category_id:params[:id]).each do |i|
           	@post_cate_ids << i.post_id
           end
        @post_cate=[]     
