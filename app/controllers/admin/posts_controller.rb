@@ -20,9 +20,9 @@ class Admin::PostsController < ApplicationController
 					@errors += @cate.errors
 				end
 			end
-			redirect_to admin_posts_path,format:'js'
+			redirect_to admin_posts_path
 		else
-			render 'new'
+			render 'new',:layout => "layouts/admin"
 		end
 
 	end
@@ -61,7 +61,7 @@ class Admin::PostsController < ApplicationController
     
     def destroy
     	@post = Post.find(params[:id])
-    	if @post.destroy
+    	if @post.destroy!
     		redirect_to admin_posts_path
     	end
     	
