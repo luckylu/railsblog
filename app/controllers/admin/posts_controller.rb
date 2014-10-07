@@ -11,20 +11,20 @@ class Admin::PostsController < ApplicationController
 	end
 	def create
 		@post = current_user.posts.build(posts_params)
-		if @post.save
-			params[:categories_ids].each do |category|
-				@cate = CategoryPost.new(:category_id => category, :post_id => @post.id)
-				if @cate.valid?
-					@cate.save
-				else
-					@errors += @cate.errors
-				end
-			end
-			redirect_to admin_posts_path
+		if params[:categories_ids] != nil
+			if @post.save
+		      params[:categories_ids].each do |category|
+		        @cate = CategoriesPost.new(:category_id => category, :post_id => @post.id)
+		        @cate.save
+              end
+			  redirect_to admin_posts_path,notice:"Create post successfully!"
+		    else
+		      render 'new',:layout => "layouts/admin"
+		    end
 		else
-			render 'new',:layout => "layouts/admin"
+		  flash.now[:error] = 'Must choose one category'
+		  render 'new',:layout => "layouts/admin"
 		end
-
 	end
 
 	def edit
@@ -61,7 +61,7 @@ class Admin::PostsController < ApplicationController
     
     def destroy
     	@post = Post.find(params[:id])
-    	if @post.destroy!
+    	if @post.destroy
     		redirect_to admin_posts_path
     	end
     	

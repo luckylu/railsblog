@@ -1,4 +1,6 @@
-
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
 <%= link_to "New", new_admin_post_path %> 
 </br>
 <% n = 1 %>
