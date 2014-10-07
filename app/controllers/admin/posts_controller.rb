@@ -11,18 +11,19 @@ class Admin::PostsController < ApplicationController
 	end
 	def create
 		@post = current_user.posts.build(posts_params)
-		if params[:categories_ids] != nil
-			if @post.save
-		      params[:categories_ids].each do |category|
-		        @cate = CategoriesPost.new(:category_id => category, :post_id => @post.id)
-		        @cate.save
-              end
-			  redirect_to admin_posts_path,notice:"Create post successfully!"
-		    else
-		      render 'new',:layout => "layouts/admin"
-		    end
+		if @post.valid?
+		  if params[:category][:categories_ids] != ""
+		  	@post.save
+			category = params[:category][:categories_ids]
+		    @cate = CategoriesPost.new(:category_id => category, :post_id => @post.id)
+		    @cate.save
+            redirect_to admin_posts_path,notice:"Create post successfully!"
+            
+		  else
+		    flash.now[:error] = 'Must choose one category'
+		    render 'new',:layout => "layouts/admin"
+		  end
 		else
-		  flash.now[:error] = 'Must choose one category'
 		  render 'new',:layout => "layouts/admin"
 		end
 	end
@@ -40,23 +41,24 @@ class Admin::PostsController < ApplicationController
 
     def update
     	@post = Post.find(params[:id])
-    	if @post.update_attributes(posts_params)
-    		if @cate != params[:categories_ids]
-    		CategoriesPost.delete_all(post_id:params[:id])
+    	
+    		if params[:category][:categories_ids] == ""
+    		  flash.now[:error] = 'Must choose one category'
+		      render 'edit',:layout => "layouts/admin"
+
+    		elsif @cate != params[:category][:categories_ids]
+    		  CategoriesPost.delete_all(post_id:params[:id])
+    		  category = params[:category][:categories_ids]
+			  @cate = CategoriesPost.new(:category_id => category, :post_id => @post.id)
+			  @cate.save
+			  @post.update_attributes(posts_params)
+			  redirect_to admin_posts_path, notice:"Update successfully"
+			else
+			  @post.update_attributes(posts_params)
+			  redirect_to admin_posts_path, notice:"Update successfully"
+			end
     		
-    		params[:categories_ids].each do |category|
-				@cate = CategoriesPost.new(:category_id => category, :post_id => @post.id)
-				if @cate.valid?
-					@cate.save
-					else
-					@errors += @cate.errors
-				end
-			end
-			end
-    		redirect_to admin_posts_path
-    	else
-    		render 'new'
-    	end
+
     end
     
     def destroy

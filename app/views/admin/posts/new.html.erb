@@ -1,10 +1,10 @@
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end %>
+<% @post.errors.full_messages.each do |msg| %>
+  <%= content_tag :div, msg, class: "error" %>
+<% end %>
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end %>
    
-      <% @post.errors.full_messages.each do |msg| %>
-        <%= content_tag :div, msg, class: "error" %>
-      <% end %>
  
 
 <%= form_for @post, url: {action: "create"} do |f| %>
@@ -17,7 +17,7 @@
   <%= f.label :content %>
   <%= f.text_area :content, class:"form-control input-lg", rows:"20" %>
   </div>
-<%= select_tag "categories_ids", options_from_collection_for_select(Category.all, 'id', 'name'), :multiple => true %>
-  <%= f.submit "Post", class:"btn btn-primary" %>
+<%= select "category", "categories_ids", Category.all.collect {|p| [p.name, p.id]},  {prompt: 'Select one category'} %>
+<div class="post_button"><%= f.submit "Post", class:"btn btn-primary btn-lg" %></div>
 <% end %>
 
