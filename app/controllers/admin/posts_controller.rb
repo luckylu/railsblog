@@ -1,7 +1,7 @@
 class Admin::PostsController < ApplicationController
 	before_action :authenticate_user!, :current_user_admin
 	def index
-		@posts = Post.paginate(:page => params[:page], :per_page => 20)
+		@posts = Post.paginate(:page => params[:page], :per_page => 15).order('created_at DESC')
 		render :layout => "layouts/admin"
 	end
 	def new
