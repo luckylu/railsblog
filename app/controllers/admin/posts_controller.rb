@@ -30,12 +30,12 @@ class Admin::PostsController < ApplicationController
 
 	def edit
 		@post = Post.find(params[:id])
-		@cate = []
+		@cate_id = 0
 		@cates = CategoriesPost.where(post_id:params[:id])
-		@cates.each do |catepost|
-			@cate << catepost.category_id
+		@cates.each do |a|
+			@cate_id = a.category_id
 		end
-		@cate
+		@cate = Category.find(@cate_id)
 		render :layout => "layouts/admin"
 	end
 

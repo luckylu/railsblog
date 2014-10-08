@@ -15,7 +15,7 @@
   <%= f.label :content %>
   <%= f.text_area :content, class:"form-control input-lg", rows:"20" %>
   </div>
-<%= select "category", "categories_ids", Category.all.collect {|p| [p.name, p.id]},  {prompt: 'Select one category'} %>
+<%= select "category", "categories_ids",Category.all.collect {|p| [p.name, p.id]}, selected:[@cate.name,@cate.id] %>
  <div class="post_button"> <%= f.submit "Update", class:"btn btn-primary btn-lg" %></div>
 
 <% end %>
