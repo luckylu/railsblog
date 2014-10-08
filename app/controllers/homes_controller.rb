@@ -2,7 +2,7 @@ class HomesController < ApplicationController
   require 'will_paginate/array'
 
 	def index
-		@posts = Post.paginate(:page => params[:page], :per_page => 5)
+		@posts = Post.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
 
 	end
 
