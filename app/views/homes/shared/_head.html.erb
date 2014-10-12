@@ -25,12 +25,12 @@
     <p class="navbar-text navbar-right home-navbar" id="navbar-link"><%= link_to "Sign in", new_user_session_path %></p>
 <% end %>
 
-</div>
+
 </nav>
 
 
 
-<div class="container">
+
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name %>
     <% end %>
@@ -55,5 +55,5 @@
 	</ul>
 	
 </nav>
-</div>
+
 

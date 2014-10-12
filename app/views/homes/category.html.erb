@@ -6,7 +6,7 @@
 <div class="jumbotron">
 <div class="posthead">
  <h2><%= p.title %></h2> 
-<h4><small><span class="glyphicon glyphicon-user"></span>: <%= p.user.username %></small> <small><span class="glyphicon glyphicon-time"></span>: <%= p.created_at.strftime("%Y/%m/%d")%></small> <small> <span class="glyphicon glyphicon-thumbs-up"></span>: <%= p.comments.count %></h4></small>
+<h4><small><span class="glyphicon glyphicon-user"></span>: <%= p.user.username %></small> <small><span class="glyphicon glyphicon-time"></span>: <%= p.created_at.strftime("%Y/%m/%d")%></small> <small> <span class="glyphicon glyphicon-thumbs-up"></span>: <%= p.comments.count %></small></h4>
 </div>
 <p><%= sanitize p.html_content.slice(0..200) %></p>
 <div class="detail">
@@ -25,3 +25,4 @@
       <%= page_entries_info @postscate %>
     </div>
     <%= will_paginate @postscate, :container => false %>
+    </div>
