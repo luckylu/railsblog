@@ -32,15 +32,15 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
   gem 'spring'
-  gem 'capistrano-ext', '~> 1.2.1'
+
   gem 'capistrano', '~> 3.2.1'
   # rails specific capistrano funcitons
-gem 'capistrano-rails', '~> 1.1.0'
+gem 'capistrano-rails', '~> 1.1.0', require: false
 
 # integrate bundler with capistrano
-gem 'capistrano-bundler'
-
-
+gem 'capistrano-bundler', '~> 1.1', require: false
+gem 'capistrano-rvm',   '~> 0.1', require: false
+gem 'capistrano-puma', require: false
 
 # Use the Unicorn app server
 gem 'unicorn'
