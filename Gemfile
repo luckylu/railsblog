@@ -33,17 +33,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :development do
   gem 'spring'
 
-  gem 'capistrano', '~> 3.2.1'
-  # rails specific capistrano funcitons
-gem 'capistrano-rails', '~> 1.1.0', require: false
-
-# integrate bundler with capistrano
-gem 'capistrano-bundler', '~> 1.1', require: false
-gem 'capistrano-rvm',   '~> 0.1', require: false
-gem 'capistrano-puma', require: false
-
-# Use the Unicorn app server
-gem 'unicorn'
+gem 'mina', '~> 0.3.1'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
